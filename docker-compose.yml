@@ -20,30 +20,14 @@ services:
       - web
     networks:
       - sspanel
-  mysql:
-    image: mysql:5.6
-    container_name: mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: yourpass
-      MYSQL_DATABASE: sspanel
-    volumes:
-      - ./configs/mysqld/mysqld_charset.cnf:/etc/mysql/conf.d/mysqld_charset.cnf
-      - mysql_data:/var/lib/mysql
-    networks:
-      - sspanel
   web:
     container_name: web
     restart: always
     image: ehco1996/django-sspanel:runtime
     environment:
-      MYSQL_PASSWORD: yourpass
-      MYSQL_HOST: mysql
       DJANGO_ENV: production
     volumes:
       - .:/usr/src/app
-    depends_on:
-      - mysql
     networks:
       - sspanel
     ports:
@@ -56,15 +40,12 @@ services:
     restart: always
     image: ehco1996/django-sspanel:runtime
     environment:
-      MYSQL_PASSWORD: yourpass
-      MYSQL_HOST: mysql
       DJANGO_ENV: production
     volumes:
       - .:/usr/src/app
     depends_on:
-      - mysql
       - web
-    networks:
+    networks:çç
       - sspanel
     working_dir: /usr/src/app
     command:
