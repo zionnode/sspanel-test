@@ -45,7 +45,7 @@ services:
       - .:/usr/src/app
     depends_on:
       - web
-    networks:çç
+    networks:
       - sspanel
     working_dir: /usr/src/app
     command:
