@@ -3,7 +3,7 @@ import os
 # mysql 设置
 DATABASES_SET_KEY = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'connect-test',
         'USER': 'zhangwei',
         'PASSWORD': '593170abcdefg',
